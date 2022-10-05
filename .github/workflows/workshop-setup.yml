@@ -1,0 +1,12 @@
+# 
+name: Mend workshop setup
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Workshop setup Github
+      env:
+        GITHUB_ORGS: ("mendts-workshop" "mendts-workshop1" "mendts-workshop2")
+      run: |
+        chmod +x ./workshop-setup-Github.sh && ./workshop-setup-Github.sh
