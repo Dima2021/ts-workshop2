@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # The following environments are controlled /set via repository secrets when executed via GitHub actions (workflows).
 export GITHUB_ORGS=("mendts-workshop" "mendts-workshop1" "mendts-workshop2")
 export GITHUB_USERNAME=ts-whitesource
