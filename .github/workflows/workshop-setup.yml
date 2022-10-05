@@ -10,6 +10,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Workshop-setup
+      env:
+        GH_TOKEN: ${{secrets.GH_TOKEN}}
       run: |
         chmod +x ./workshop-setup-github.sh
         ./workshop-setup-github.sh ghusers.txt
