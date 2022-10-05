@@ -1,6 +1,5 @@
 export GH_ORGS=("mendts-workshop" "mendts-workshop1" "mendts-workshop2")
 export GH_USERNAME=ts-whitesource
-export GH_TOKEN=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
 export GH_USERS_PER_ORG=1
 
 echo "GH_USERNAME = $GH_USERNAME"
