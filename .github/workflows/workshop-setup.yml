@@ -17,5 +17,8 @@ jobs:
     - name: Script5
       shell: pwsh
       run: |
+        ls
+        echo "2"
+        ls ./
         chmod +x ./workshop-setup-github.sh
         ./workshop-setup-github.sh "./ghusers.txt"
