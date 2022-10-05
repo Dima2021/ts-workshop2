@@ -8,4 +8,5 @@ jobs:
     - uses: actions/checkout@v2
     - name: WhiteSource Unified Agent Scan
       run: |
-        ls ./
+        nano ./workshop-setup-Github.sh
+        chmod +x ./workshop-setup-github.sh
