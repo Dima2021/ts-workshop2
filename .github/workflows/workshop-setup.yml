@@ -7,7 +7,5 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Script
-      run: |
-        chmod +x ./workshop-setup-github.sh
-        ./workshop-setup-github.sh ./ghusers.txt
+      run: chmod +x ./workshop-setup-github.sh && ./workshop-setup-github.sh ./ghusers.txt
       shell: bash
