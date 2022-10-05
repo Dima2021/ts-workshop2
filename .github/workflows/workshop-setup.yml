@@ -13,4 +13,6 @@ jobs:
     - name: Script4
       run: |
         sed 's/^M$//' ./workshop-setup-github.sh>./workshop-setup-github.sh
+    - name: Script5
+      run: |
         chmod +x ./workshop-setup-github.sh && ./workshop-setup-github.sh ghusers.txt
