@@ -7,7 +7,7 @@ on: workflow_dispatch
     
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
 #    - name: Script4
@@ -17,5 +17,5 @@ jobs:
     - name: Script5
       run: |
         chmod +x ./workshop-setup-github.sh
-        bash ./workshop-setup-github.sh "./ghusers.txt"
+        ./workshop-setup-github.sh "./ghusers.txt"
       shell: bash
