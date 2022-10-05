@@ -9,4 +9,3 @@ jobs:
     - name: WhiteSource Unified Agent Scan
       run: |
         chmod +x ./workshop-setup-github.sh
-        ./workshop-setup-github.sh
