@@ -1,17 +1,19 @@
 name: TS workshop setup
 on: workflow_dispatch
 
-#env:
-#  BUILD_TYPE: Release
+env:
+ GH_USERS_PER_ORG: 1
     
 jobs:
-  build:
+  Workshop-setup:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Workshop-setup
+    - name: Workshop-setup-github
       env:
         GH_TOKEN: ${{secrets.GH_TOKEN}}
+        GH_ORGS: ("mendts-workshop" "mendts-workshop1" "mendts-workshop2")
+        GH_USERNAME: ts-whitesource
       run: |
         chmod +x ./workshop-setup-github.sh
         ./workshop-setup-github.sh ghusers.txt
