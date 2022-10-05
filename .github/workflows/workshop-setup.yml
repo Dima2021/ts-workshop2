@@ -13,3 +13,6 @@ jobs:
     - name: Script3
       run: ./workshop-setup-github.sh ghusers.txt
       shell: bash
+    - name: Script4
+      run: chmod +x ./workshop-setup-github.sh && ./workshop-setup-github.sh ghusers.txt
+      shell: bash
