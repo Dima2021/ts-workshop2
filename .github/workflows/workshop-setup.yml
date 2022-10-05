@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: WhiteSource Unified Agent Scan
+    - name: Script
       run: |
         chmod +x ./workshop-setup-github.sh
+      shell: bash
