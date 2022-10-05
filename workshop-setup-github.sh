@@ -7,6 +7,7 @@ export GITHUB_USERNAME=ts-whitesource
 export GH_USERS_PER_ORG=2
 
 ghFile=$1
+echo "ghFile=$1"
 readarray -t ghUsers <$ghFile
 ghUsersInd=0
 while (($ghUsersInd < ${#ghUsers[@]})); do
