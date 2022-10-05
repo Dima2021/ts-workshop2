@@ -2,6 +2,9 @@ export GITHUB_ORGS=("mendts-workshop" "mendts-workshop1" "mendts-workshop2")
 export GITHUB_USERNAME=ts-whitesource
 export GH_USERS_PER_ORG=2
 
+echo "GITHUB_USERNAME = $GITHUB_USERNAME"
+echo "GITHUB_TOKEN = $GITHUB_TOKEN"
+
 ghFile=$1
 readarray -t ghUsers <$ghFile
 
@@ -28,6 +31,8 @@ while (($ghUsersInd < ${#ghUsers[@]})); do
     echo "Creating repository for ${ghUsers[$ghUsersInd]} within the ${GITHUB_ORGS[$orgInd]}" >> ../repocreated.txt
 
     echo "Creating a new repository for ${ghUsers[$ghUsersInd]} within the ${GITHUB_ORGS[$orgInd]} organization"
+echo "GITHUB_USERNAME = $GITHUB_USERNAME = ${GITHUB_USERNAME}"
+echo "GITHUB_TOKEN = $GITHUB_TOKEN = ${GITHUB_TOKEN}"
     curl -X POST -H 'Accept: application/vnd.github.v3+json' -u ${GITHUB_USERNAME}:${GITHUB_TOKEN} \
     https://api.github.com/orgs/${GITHUB_ORGS[$orgInd]}/repos -d '{"name":"'${ghUsers[$ghUsersInd]}'"}'
 
