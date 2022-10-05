@@ -5,7 +5,7 @@
 #export GH_USERS_PER_ORG=2
 
 ghFile=$1
-readarray -t ghUsers <$ghFile
+readarray -t ghUsers < $ghFile
 
 # Delete the repocreated.txt file, in case it exists from the previous interactions.
 if [ -e "repocreated.txt" ]; then
@@ -28,21 +28,21 @@ while (($ghUsersInd < ${#ghUsers[@]})); do
     # Calc organization index for GitHub organization
     orgInd=$(($ghUsersInd / $GH_USERS_PER_ORG))
     echo "Creating repository for ${ghUsers[$ghUsersInd]} within the ${GITHUB_ORGS[$orgInd]}" >> ../repocreated.txt
-
+    
     echo "Creating a new repository for ${ghUsers[$ghUsersInd]} within the ${GITHUB_ORGS[$orgInd]} organization"
     curl -X POST -H 'Accept: application/vnd.github.v3+json' -u ${GITHUB_USERNAME}:${GITHUB_TOKEN} \
     https://api.github.com/orgs/${GITHUB_ORGS[$orgInd]}/repos -d '{"name":"'${ghUsers[$ghUsersInd]}'"}'
-
+    
     echo "Adding ${ghUsers[$ghUsersInd]} as a new collaborator to ${GITHUB_ORGS[$orgInd]} organization"
     curl -X PUT -H 'Accept: application/vnd.github.v3+json' -u ${GITHUB_USERNAME}:${GITHUB_TOKEN} \
     https://api.github.com/repos/${GITHUB_ORGS[$orgInd]}/${ghUsers[$ghUsersInd]}/collaborators/${ghUsers[$ghUsersInd]} -d '{"permission":"admin"}'
-
+    
     demoOrigin=https://github.com/${GITHUB_ORGS[$orgInd]}/${ghUsers[$ghUsersInd]}.git
     echo "Pushing easybuggy to $demoOrigin"
     git remote set-url origin $demoOrigin
     git push -u origin
-	
-	ghUsersInd=$(($ghUsersInd + 1))
+    
+    ghUsersInd=$(($ghUsersInd + 1))
 done
 
 cd .. && rm -rf easybuggy
