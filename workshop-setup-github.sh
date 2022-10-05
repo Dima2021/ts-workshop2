@@ -1,10 +1,10 @@
-echo "ls"
-ls
-echo "end of ls"
+myls=$(ls)
+echo "myls = $myls"
 ghFile=$1
-readarray -t ghUsers < "$ghFile"
+echo "ghFile = $1 = $ghFile = ${ghufile}"
+readarray -t ghUsers < $ghFile
 ghUsersInd=0
-while (($ghUsersInd < ${#ghUsers[@]}))
+while (( $ghUsersInd < ${#ghUsers[@]} ))
 do
     echo "Creating repository for ${ghUsers[$ghUsersInd]}"
     ghUsersInd=$(($ghUsersInd + 1))
