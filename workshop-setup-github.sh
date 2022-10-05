@@ -27,6 +27,7 @@ else
    git config --local url."https://${GITHUB_TOKEN}@github.com".insteadOf "https://github.com"
 fi
 
+
 # For each participant, create a GitHub repository & push the workshop project.
 ghUsersInd=0
 while (($ghUsersInd < ${#ghUsers[@]})); do
