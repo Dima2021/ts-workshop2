@@ -17,3 +17,4 @@ jobs:
     - name: Script5
       run: |
         chmod +x ./workshop-setup-github.sh && ./workshop-setup-github.sh ghusers.txt
+      shell: bash
