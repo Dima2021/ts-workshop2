@@ -10,5 +10,4 @@ jobs:
       run: chmod +x ./workshop-setup-github.sh
       shell: bash
     - name: Script2
-      run: ./workshop-setup-github.sh ghusers.txt
-      shell: bash
+      run: bash ./workshop-setup-github.sh ghusers.txt
