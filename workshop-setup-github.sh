@@ -8,6 +8,11 @@ export GH_USERS_PER_ORG=2
 
 ghFile=$1
 readarray -t ghUsers <$ghFile
+ghUsersInd=0
+while (($ghUsersInd < ${#ghUsers[@]})); do
+    echo "Creating repository for ${ghUsers[$ghUsersInd]}"
+    ghUsersInd=$(($ghUsersInd + 1))
+done
 
 # Delete the repocreated.txt file, in case it exists from the previous interactions.
 if [ -e "repocreated.txt" ]; then
