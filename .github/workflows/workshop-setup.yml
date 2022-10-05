@@ -4,10 +4,6 @@ on: workflow_dispatch
 
 env:
   BUILD_TYPE: Release
-
-defaults:
-  run:
-    shell: bash -leo pipefail {0} # Removed " --noprofile --norc " options from default bash
     
 jobs:
   build:
