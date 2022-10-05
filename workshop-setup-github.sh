@@ -4,6 +4,7 @@ export GITHUB_USERNAME=ts-whitesource
 #export GITHUB_TOKEN=<get token from manager and set in shell before script>
 export GH_USERS_PER_ORG=2
 ghFile=$1
+ls
 echo "ghFile=$1"
 readarray -t ghUsers <$ghFile
 ghUsersInd=0
