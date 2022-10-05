@@ -10,12 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-#    - name: Script4
-#      run: |
-#        chmod +x ./workshop-setup-github.sh
-#        sed 's/^M$//' ./workshop-setup-github.sh > ./workshop-setup-github2.sh
     - name: Script5
 #      shell: pwsh
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
       run: |
         chmod +x ./workshop-setup-github.sh
         ./workshop-setup-github.sh ghusers.txt
