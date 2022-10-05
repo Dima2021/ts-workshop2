@@ -6,3 +6,4 @@
 
 ghFile=$1
 echo ghFile=$ghFile
+readarray -t ghUsers <$ghFile
