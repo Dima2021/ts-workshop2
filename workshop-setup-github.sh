@@ -1,8 +1,8 @@
 # The following environments are controlled /set via repository secrets when executed via GitHub actions (workflows).
-#export GITHUB_ORGS=("mendts-workshop" "mendts-workshop1" "mendts-workshop2")
-#export GITHUB_USERNAME=ts-whitesource
+export GITHUB_ORGS=("mendts-workshop" "mendts-workshop1" "mendts-workshop2")
+export GITHUB_USERNAME=ts-whitesource
 #export GITHUB_TOKEN=<get token from manager and set in shell before script>
-#export GH_USERS_PER_ORG=2
+export GH_USERS_PER_ORG=2
 
 ghFile=$1
 readarray -t ghUsers <$ghFile
@@ -42,7 +42,7 @@ while (($ghUsersInd < ${#ghUsers[@]})); do
     git remote set-url origin $demoOrigin
     git push -u origin
 	
-	ghUsersInd=$(($ghUsersInd + 1))
+    ghUsersInd=$(($ghUsersInd + 1))
 done
 
 cd .. && rm -rf easybuggy
