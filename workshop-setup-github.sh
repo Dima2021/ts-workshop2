@@ -1,10 +1,10 @@
-export GITHUB_ORGS=("mendts-workshop" "mendts-workshop1" "mendts-workshop2")
-export GITHUB_USERNAME=ts-whitesource
-export GITHUB_TOKEN=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
-export GH_USERS_PER_ORG=2
+export GH_ORGS=("mendts-workshop" "mendts-workshop1" "mendts-workshop2")
+export GH_USERNAME=ts-whitesource
+export GH_TOKEN=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
+export GH_USERS_PER_ORG=1
 
-echo "GITHUB_USERNAME = $GITHUB_USERNAME"
-echo "GITHUB_TOKEN = $GITHUB_TOKEN"
+echo "GH_USERNAME = $GH_USERNAME"
+echo "GH_TOKEN = $GH_TOKEN"
 
 ghFile=$1
 readarray -t ghUsers <$ghFile
@@ -18,9 +18,9 @@ workshopProjDir=$PWD/easybuggy
 # Clone the workshop project if it doesn't already exist. E.g. easybuggy.
 if [ -d "$workshopProjDir" ]; then
    cd $workshopProjDir && echo "$workshopProjDir exists"
-else 
+else
    git clone https://github.com/k-tamura/easybuggy.git && cd ./easybuggy
-   git config --local url."https://${GITHUB_TOKEN}@github.com".insteadOf "https://github.com"
+   git config --local url."https://${GH_TOKEN}@github.com".insteadOf "https://github.com"
 fi
 
 # For each participant, create a GitHub repository & push the workshop project.
@@ -29,19 +29,19 @@ while (($ghUsersInd < ${#ghUsers[@]})); do
 
     # Calc organization index for GitHub organization
     orgInd=$(($ghUsersInd / $GH_USERS_PER_ORG))
-    echo "Creating repository for ${ghUsers[$ghUsersInd]} within the ${GITHUB_ORGS[$orgInd]}" >> ../repocreated.txt
+    echo "Creating repository for ${ghUsers[$ghUsersInd]} within the ${GH_ORGS[$orgInd]}" >> ../repocreated.txt
 
-    echo "Creating a new repository for ${ghUsers[$ghUsersInd]} within the ${GITHUB_ORGS[$orgInd]} organization"
-echo "GITHUB_USERNAME = $GITHUB_USERNAME = ${GITHUB_USERNAME}"
-echo "GITHUB_TOKEN = $GITHUB_TOKEN = ${GITHUB_TOKEN}"
-    curl -X POST -H 'Accept: application/vnd.github.v3+json' -u ${GITHUB_USERNAME}:${GITHUB_TOKEN} \
-    https://api.github.com/orgs/${GITHUB_ORGS[$orgInd]}/repos -d '{"name":"'${ghUsers[$ghUsersInd]}'"}'
+    echo "Creating a new repository for ${ghUsers[$ghUsersInd]} within the ${GH_ORGS[$orgInd]} organization"
+echo "GH_USERNAME = $GH_USERNAME = ${GH_USERNAME}"
+echo "GH_TOKEN = $GH_TOKEN = ${GH_TOKEN}"
+    curl -X POST -H 'Accept: application/vnd.github.v3+json' -u ${GH_USERNAME}:${GH_TOKEN} \
+    https://api.github.com/orgs/${GH_ORGS[$orgInd]}/repos -d '{"name":"'${ghUsers[$ghUsersInd]}'"}'
 
-    echo "Adding ${ghUsers[$ghUsersInd]} as a new collaborator to ${GITHUB_ORGS[$orgInd]} organization"
-    curl -X PUT -H 'Accept: application/vnd.github.v3+json' -u ${GITHUB_USERNAME}:${GITHUB_TOKEN} \
-    https://api.github.com/repos/${GITHUB_ORGS[$orgInd]}/${ghUsers[$ghUsersInd]}/collaborators/${ghUsers[$ghUsersInd]} -d '{"permission":"admin"}'
-
-    demoOrigin=https://github.com/${GITHUB_ORGS[$orgInd]}/${ghUsers[$ghUsersInd]}.git
+    echo "Adding ${ghUsers[$ghUsersInd]} as a new collaborator to ${GH_ORGS[$orgInd]} organization"
+    curl -X PUT -H 'Accept: application/vnd.github.v3+json' -u ${GH_USERNAME}:${GH_TOKEN} \
+    https://api.github.com/repos/${GH_ORGS[$orgInd]}/${ghUsers[$ghUsersInd]}/collaborators/${ghUsers[$ghUsersInd]} -d '{"permission":"admin"}'
+	
+	demoOrigin=https://github.com/${GH_ORGS[$orgInd]}/${ghUsers[$ghUsersInd]}.git
     echo "Pushing easybuggy to $demoOrigin"
     git remote set-url origin $demoOrigin
     git push -u origin
