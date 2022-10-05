@@ -1,9 +1,13 @@
-#export GH_ORGS=("mendts-workshop" "mendts-workshop1" "mendts-workshop2")
+#export GH_TOKEN=<get token from manager and set in shell before script>
+#export GH_ORGS="mendts-workshop mendts-workshop1 mendts-workshop2"
 #export GH_USERNAME=ts-whitesource
 #export GH_USERS_PER_ORG=2
 
 ghFile=$1
-readarray -t ghUsers <$ghFile
+readarray -t ghUsers < $ghFile
+
+# Split GH_ORGS based on the delimiter ' '
+readarray -d ' ' -t ghOrgs < $GH_ORGS
 
 # Delete the repocreated.txt file, in case it exists from the previous interactions.
 if [ -e "repocreated.txt" ]; then
@@ -25,18 +29,18 @@ while (($ghUsersInd < ${#ghUsers[@]})); do
 
     # Calc organization index for GitHub organization
     orgInd=$(($ghUsersInd / $GH_USERS_PER_ORG))
-    echo "Creating repository for ${ghUsers[$ghUsersInd]} within the ${GH_ORGS[$orgInd]}" >> ../repocreated.txt
+    echo "Creating repository for ${ghUsers[$ghUsersInd]} within the ${ghOrgs[$orgInd]}" >> ../repocreated.txt
 
-    echo "Creating a new repository for ${ghUsers[$ghUsersInd]} within the ${GH_ORGS[$orgInd]} organization"
+    echo "Creating a new repository for ${ghUsers[$ghUsersInd]} within the ${ghOrgs[$orgInd]} organization"
 
     curl -X POST -H 'Accept: application/vnd.github.v3+json' -u ${GH_USERNAME}:${GH_TOKEN} \
-    https://api.github.com/orgs/${GH_ORGS[$orgInd]}/repos -d '{"name":"'${ghUsers[$ghUsersInd]}'"}'
+    https://api.github.com/orgs/${ghOrgs[$orgInd]}/repos -d '{"name":"'${ghUsers[$ghUsersInd]}'"}'
 
-    echo "Adding ${ghUsers[$ghUsersInd]} as a new collaborator to ${GH_ORGS[$orgInd]} organization"
+    echo "Adding ${ghUsers[$ghUsersInd]} as a new collaborator to ${ghOrgs[$orgInd]} organization"
     curl -X PUT -H 'Accept: application/vnd.github.v3+json' -u ${GH_USERNAME}:${GH_TOKEN} \
-    https://api.github.com/repos/${GH_ORGS[$orgInd]}/${ghUsers[$ghUsersInd]}/collaborators/${ghUsers[$ghUsersInd]} -d '{"permission":"admin"}'
+    https://api.github.com/repos/${ghOrgs[$orgInd]}/${ghUsers[$ghUsersInd]}/collaborators/${ghUsers[$ghUsersInd]} -d '{"permission":"admin"}'
 
-    demoOrigin=https://github.com/${GH_ORGS[$orgInd]}/${ghUsers[$ghUsersInd]}.git
+    demoOrigin=https://github.com/${ghOrgs[$orgInd]}/${ghUsers[$ghUsersInd]}.git
     echo "Pushing easybuggy to $demoOrigin"
     git remote set-url origin $demoOrigin
     git push -u origin
