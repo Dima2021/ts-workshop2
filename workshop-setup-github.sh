@@ -1,5 +1,5 @@
 
-ghFile=$1
+ghFile = $1
 readarray -t ghUsers <$ghFile
 
 # Delete the repocreated.txt file, in case it exists from the previous interactions.
