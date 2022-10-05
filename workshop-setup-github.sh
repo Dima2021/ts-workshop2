@@ -1,5 +1,6 @@
 export GITHUB_ORGS=("mendts-workshop" "mendts-workshop1" "mendts-workshop2")
 export GITHUB_USERNAME=ts-whitesource
+export GITHUB_TOKEN=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
 export GH_USERS_PER_ORG=2
 
 echo "GITHUB_USERNAME = $GITHUB_USERNAME"
