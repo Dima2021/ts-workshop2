@@ -1,3 +1,4 @@
+#!/bin/sh
 myls=$(ls)
 echo "myls = $myls"
 #ghFile=$1
