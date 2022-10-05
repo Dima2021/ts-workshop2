@@ -1,10 +1,11 @@
-# 
-name: Mend workshop setup
+# replace .war with .jar or .ear if needed
+name: Whitesource Prioritize Java with Maven
 on: workflow_dispatch
 jobs:
-  Workshop-setup:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Run build script
-        run: workshop-setup-Github.sh
-        shell: bash
+    - uses: actions/checkout@v2
+    - name: WhiteSource Unified Agent Scan
+      run: |
+        chmod +x ./workshop-setup-Github.sh && ./workshop-setup-Github.sh
