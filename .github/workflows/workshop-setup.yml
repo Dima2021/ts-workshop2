@@ -1,5 +1,4 @@
-# replace .war with .jar or .ear if needed
-name: Whitesource Prioritize Java with Maven
+name: TS workshop setup
 on: workflow_dispatch
 
 #env:
@@ -10,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Script5
+    - name: Workshop-setup
 #      shell: pwsh
       env:
         GITHUB_TOKEN: ${{secrets.GH_TOKEN}}
