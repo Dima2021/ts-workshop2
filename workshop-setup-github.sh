@@ -1,13 +1,14 @@
 #export GH_TOKEN=<get token from manager and set in shell before script>
-#export GH_ORGS="mendts-workshop mendts-workshop1 mendts-workshop2"
+#export GH_ORGS="mendts-workshop, mendts-workshop1, mendts-workshop2"
 #export GH_USERNAME=ts-whitesource
 #export GH_USERS_PER_ORG=2
 
 ghFile=$1
 readarray -t ghUsers < $ghFile
 
-# Split GH_ORGS based on the delimiter ' '
-readarray -d ' ' -t ghOrgs < $GH_ORGS
+# Remove all spaces and split GH_ORGS based on the delimiter ','
+GH_ORGS=$(echo $GH_ORGS | tr -d ' ')
+IFS=','; read -ra ghOrgs <<< "$GH_ORGS"
 
 # Delete the repocreated.txt file, in case it exists from the previous interactions.
 if [ -e "repocreated.txt" ]; then
