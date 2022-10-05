@@ -5,6 +5,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - uses: actions/checkout@v2
     - name: Script4
       run: chmod +x ./workshop-setup-github.sh && ./workshop-setup-github.sh ghusers.txt
       shell: bash
