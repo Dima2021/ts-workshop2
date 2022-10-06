@@ -20,8 +20,6 @@ read -ra userKeys <<< "$WS_USERKEYS"
 WS_INVITERS=$(echo $WS_INVITERS | tr -d ' ' | tr ',' ' ')
 read -ra inviters <<< "$WS_INVITERS"
 
-echo "apiKeys = ${#apiKeys[@]}, userKeys = ${#userKeys[@]}"
-
 emailsInd=0
 while (($emailsInd < ${#emails[@]})); do
 #   echo "email $emailsInd is ${emails[$emailsInd]}"
