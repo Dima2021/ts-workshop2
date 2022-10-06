@@ -8,8 +8,8 @@ ghFile=$1
 readarray -t ghUsers < $ghFile
 
 # Remove all spaces and split GH_ORGS based on the delimiter ','
-GH_ORGS=$(echo $GH_ORGS | tr -d ' ')
-IFS=','; read -ra ghOrgs <<< "$GH_ORGS"
+GH_ORGS=$(echo $GH_ORGS | tr -d ' ' | tr ',' ' ')
+read -ra ghOrgs <<< "$GH_ORGS"
 
 # Delete the repocreated.txt file, in case it exists from the previous interactions.
 if [ -e "repocreated.txt" ]; then
