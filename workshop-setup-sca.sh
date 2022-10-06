@@ -1,20 +1,24 @@
 #export WS_APIKEYS="apiKey, apiKey1, apiKey2"
-#export WS_USERKEYS=("userKey, userKey1, userKey2"
-#export WS_WSS_URL=https://saas.mend.io/api/v1.3
+#export WS_USERKEYS="userKey, userKey1, userKey2"
+#export WS_INVITERS="tsworkshop@whitesourcesoftware.com, tsworkshop1@whitesourcesoftware.com, tsworkshop2@whitesourcesoftware.com"
+#export WS_WSS_URL="https://saas.mend.io/api/v1.3"
 #export GH_USERS_PER_ORG=2
-export WS_INVITER=facilitator@gmail.com
 export WS_USER_GROUP=admins
 
 emailsFile=$1
 readarray -t emails <$emailsFile
 
 # Remove all spaces and split WS_APIKEYS based on the delimiter ','
-WS_APIKEYS=$(echo $WS_APIKEYS | tr -d ' ')
-IFS=','; read -ra apiKeys <<< "$WS_APIKEYS"
+WS_APIKEYS=$(echo $WS_APIKEYS | tr -d ' ' | tr  ',' ' ')
+read -ra apiKeys <<< "$WS_APIKEYS"
 
-# Remove all spaces and split WS_APIKEYS based on the delimiter ','
-WS_USERKEYS=$(echo $WS_USERKEYS | tr -d ' ')
-IFS=','; read -ra userKeys <<< "$WS_USERKEYS"
+# Remove all spaces and split WS_USERKEYS based on the delimiter ','
+WS_USERKEYS=$(echo $WS_USERKEYS | tr -d ' ' | tr ',' ' ')
+read -ra userKeys <<< "$WS_USERKEYS"
+
+# Remove all spaces and split WS_INVITERS based on the delimiter ','
+WS_INVITERS=$(echo $WS_INVITERS | tr -d ' ' | tr ',' ' ')
+read -ra inviters <<< "$WS_INVITERS"
 
 emailsInd=0
 while (($emailsInd < ${#emails[@]})); do
@@ -36,11 +40,11 @@ while (($emailsInd < ${#emails[@]})); do
         assignedUsers=$(echo $assignedUsers | sed 's/,$//')
 
         # Uncomment for debug/troubleshooting purposes
-#       echo -e "\norgInd=$orgInd, APIKEY=${apiKeys[$orgInd]}, USERKEY=${userKeys[$orgInd]}, emailsPerOrg=$emailsPerOrg, assignedUsers=$assignedUsers"
+#       echo -e "\norgInd=$orgInd, apiKey=${apiKeys[$orgInd]}, userKey=${userKeys[$orgInd]}, emailsPerOrg=$emailsPerOrg, assignedUsers=$assignedUsers"
 
         echo -e "\nOrg #$orgInd: Invite Users to an Organization"
         curl --request POST -H "Content-Type:application/json" $WS_WSS_URL \
-       -d "{'requestType':'inviteUsers', 'userKey':'${userKeys[$orgInd]}', 'orgToken':'${apiKeys[$orgInd]}', 'inviter':{'email':'$WS_INVITER'}, 'emails':[$emailsPerOrg]}"
+       -d "{'requestType':'inviteUsers', 'userKey':'${userKeys[$orgInd]}', 'orgToken':'${apiKeys[$orgInd]}', 'inviter':{'email':'${inviters[$orgInd]}'}, 'emails':[$emailsPerOrg]}"
 
         echo -e "\nOrg #$orgInd: Add Users to ${WS_USER_GROUP} Group"
         curl --request POST -H "Content-Type:application/json" $WS_WSS_URL \
