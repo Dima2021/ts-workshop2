@@ -5,6 +5,7 @@
 export WS_INVITER=facilitator@gmail.com
 export WS_USER_GROUP=admins
 
+
 emailsFile=$1
 readarray -t emails <$emailsFile
 
