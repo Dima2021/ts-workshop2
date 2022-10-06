@@ -1,5 +1,5 @@
-#export WS_APIKEYS=("apiKey" "apiKey1" "apiKey2")
-#export WS_USERKEYS=("userKey" "userKey1" "userKey2")
+#export WS_APIKEYS="apiKey, apiKey1, apiKey2"
+#export WS_USERKEYS=("userKey, userKey1, userKey2"
 #export WS_WSS_URL=https://saas.mend.io/api/v1.3
 #export GH_USERS_PER_ORG=2
 export WS_INVITER=facilitator@gmail.com
