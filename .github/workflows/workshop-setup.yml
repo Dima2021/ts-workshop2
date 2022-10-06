@@ -18,3 +18,14 @@ jobs:
       run: |
         chmod +x ./workshop-setup-github.sh
         ./workshop-setup-github.sh ghusers.txt
+    - name: Workshop-setup-sca
+      env:
+        WS_APIKEYS: ${{secrets.WS_APIKEYS}}
+        WS_USERKEYS: ${{secrets.WS_USERKEYS}}
+        WS_WSS_URL: https://saas.mend.io/api/v1.3
+      run: |
+        chmod +x ./workshop-setup-sca.sh
+        ./workshop-setup-sca.sh emails.txt        
+        
+        
+        
