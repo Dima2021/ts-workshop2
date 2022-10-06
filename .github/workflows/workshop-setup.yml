@@ -25,7 +25,5 @@ jobs:
         WS_WSS_URL: https://saas.mend.io/api/v1.3
       run: |
         chmod +x ./workshop-setup-sca.sh
-        ./workshop-setup-sca.sh emails.txt        
-        
-        
+        ./workshop-setup-sca.sh emails.txt
         
