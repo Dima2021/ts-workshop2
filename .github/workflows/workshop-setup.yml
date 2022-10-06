@@ -23,6 +23,7 @@ jobs:
         WS_APIKEYS: ${{secrets.WS_APIKEYS}}
         WS_USERKEYS: ${{secrets.WS_USERKEYS}}
         WS_WSS_URL: https://saas.mend.io/api/v1.3
+        WS_INVITERS: "tsworkshop@whitesourcesoftware.com, tsworkshop1@whitesourcesoftware.com, tsworkshop2@whitesourcesoftware.com"
       run: |
         chmod +x ./workshop-setup-sca.sh
         ./workshop-setup-sca.sh emails.txt
