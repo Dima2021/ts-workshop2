@@ -2,6 +2,7 @@
 #export GH_ORGS="mendts-workshop, mendts-workshop1, mendts-workshop2"
 #export GH_USERNAME=ts-whitesource
 #export GH_USERS_PER_ORG=2
+#export GH_BRANCH=easybuggy
 
 ghFile=$1
 readarray -t ghUsers < $ghFile
@@ -15,12 +16,13 @@ if [ -e "repocreated.txt" ]; then
     rm repocreated.txt
 fi
 
-workshopProjDir=$PWD/easybuggy
-# Clone the workshop project if it doesn't already exist. E.g. easybuggy.
+workshopProjDir=$PWD/$GH_BRANCH
+# Clone the workshop project if it doesn't already exist (e.g. easybuggy).
 if [ -d "$workshopProjDir" ]; then
    cd $workshopProjDir && echo "$workshopProjDir exists"
 else
-   git clone https://github.com/k-tamura/easybuggy.git && cd ./easybuggy
+# Only clone the specified branch into a separate  folder. This branch also serves as the name of the folder.
+   git clone --single-branch --branch $GH_BRANCH https://github.com/Dima2021/ts-workshop2.git $GH_BRANCH && cd ./$GH_BRANCH
    git config --local url."https://${GH_TOKEN}@github.com".insteadOf "https://github.com"
 fi
 
@@ -42,11 +44,11 @@ while (($ghUsersInd < ${#ghUsers[@]})); do
     https://api.github.com/repos/${ghOrgs[$orgInd]}/${ghUsers[$ghUsersInd]}/collaborators/${ghUsers[$ghUsersInd]} -d '{"permission":"admin"}'
 
     demoOrigin=https://github.com/${ghOrgs[$orgInd]}/${ghUsers[$ghUsersInd]}.git
-    echo "Pushing easybuggy to $demoOrigin"
+    echo "Pushing workshop project (e.g. easybuggy) to $demoOrigin"
     git remote set-url origin $demoOrigin
     git push -u origin
 
     ghUsersInd=$(($ghUsersInd + 1))
 done
 
-cd .. && rm -rf easybuggy
+cd .. && rm -rf $GH_BRANCH
