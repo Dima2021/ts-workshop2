@@ -21,7 +21,7 @@ jobs:
     - name: Workshop-setup-sca
       env:
         WS_APIKEYS: "${{secrets.WS_APIKEY}}, ${{secrets.WS_APIKEY1}}, ${{secrets.WS_APIKEY2}}"
-        WS_USERKEYS: "c11c6dd4d5584eea8eb719357306f87126c653656c0f4432a0a93a917f00890b, 389455c2befe4d6b8f13efdfab1451a4f69fc96e41ad44069098265838be7fd9, 1ce3f599e4a64dc29f82110dac8e6a20c5328e4b59534a9182c0a4d40a647825"
+        WS_USERKEYS: "${{secrets.WS_USERKEY}}, ${{secrets.WS_USERKEY1}}, ${{secrets.WS_USERKEY2}}"
         WS_WSS_URL: https://saas.mend.io/api/v1.3
         WS_INVITERS: "tsworkshop@whitesourcesoftware.com, tsworkshop1@whitesourcesoftware.com, tsworkshop2@whitesourcesoftware.com"
       run: |
