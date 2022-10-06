@@ -44,7 +44,7 @@ while (($ghUsersInd < ${#ghUsers[@]})); do
     https://api.github.com/repos/${ghOrgs[$orgInd]}/${ghUsers[$ghUsersInd]}/collaborators/${ghUsers[$ghUsersInd]} -d '{"permission":"admin"}'
 
     demoOrigin=https://github.com/${ghOrgs[$orgInd]}/${ghUsers[$ghUsersInd]}.git
-    echo "Pushing workshop project (e.g. easybuggy) to $demoOrigin"
+    echo "Pushing workshop project $GH_BRANCH to $demoOrigin"
     git remote set-url origin $demoOrigin
     git push -u origin
 
