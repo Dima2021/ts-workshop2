@@ -20,6 +20,8 @@ read -ra userKeys <<< "$WS_USERKEYS"
 WS_INVITERS=$(echo $WS_INVITERS | tr -d ' ' | tr ',' ' ')
 read -ra inviters <<< "$WS_INVITERS"
 
+echo "apiKeys = ${#apiKeys[@]}, userKeys = ${#userKeys[@]}"
+
 emailsInd=0
 while (($emailsInd < ${#emails[@]})); do
 #   echo "email $emailsInd is ${emails[$emailsInd]}"
@@ -46,7 +48,7 @@ while (($emailsInd < ${#emails[@]})); do
         curl --request POST -H "Content-Type:application/json" $WS_WSS_URL \
        -d "{'requestType':'inviteUsers', 'userKey':'${userKeys[$orgInd]}', 'orgToken':'${apiKeys[$orgInd]}', 'inviter':{'email':'${inviters[$orgInd]}'}, 'emails':[$emailsPerOrg]}"
 
-        echo -e "\nOrg #$orgInd: Add Users to ${WS_USER_GROUP} Group"
+        echo -e "\nOrg #$orgInd: Add Users to $WS_USER_GROUP Group"
         curl --request POST -H "Content-Type:application/json" $WS_WSS_URL \
         -d "{'requestType':'addUsersToGroups', 'userKey':'${userKeys[$orgInd]}', 'orgToken':'${apiKeys[$orgInd]}', 'assignedUsers':[[{'name':'$WS_USER_GROUP'}, [$assignedUsers]]]}"
         # Init for the next Mend organization
