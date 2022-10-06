@@ -44,7 +44,7 @@ while (($emailsInd < ${#emails[@]})); do
 
         echo -e "\nOrg #$orgInd: Add Users to ${WS_USER_GROUP} Group"
         curl --request POST -H "Content-Type:application/json" $WS_WSS_URL \
-        -d "{'requestType':'addUsersToGroups', 'userKey':'${userKeys[$orgInd]}', 'orgToken':'${apiKeys[$orgInd]}', 'assignedUsers':[[{'name':'$WS_USER_GROUP'}, [${assignedUsers}$
+        -d "{'requestType':'addUsersToGroups', 'userKey':'${userKeys[$orgInd]}', 'orgToken':'${apiKeys[$orgInd]}', 'assignedUsers':[[{'name':'$WS_USER_GROUP'}, [$assignedUsers]]]}"
         # Init for the next Mend organization
         emailsPerOrg=""
         assignedUsers=""
