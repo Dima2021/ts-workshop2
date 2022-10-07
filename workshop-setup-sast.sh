@@ -1,5 +1,5 @@
 #export SAST_API_TOKENS="apiToken, apiToken1, apiToken2"
-#export SAST_URL=https://sast.mend.io/sast/
+#export SAST_URL=https://sast.mend.io/sast
 #export GH_USERS_PER_ORG=2
 
 emailsFile=$1
