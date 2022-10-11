@@ -44,6 +44,24 @@ High level overview of the scripts:
 -	Fill ghusers.txt with GitHub user accounts that will be participating in the workshop. Do not use commas, just **line separated**.
 -	Fill emails.txt with email accounts that will be participating in the workshop. Do not use commas, just **line separated**.
 
+# Execution
+There are 2 options to execute the scripts
+- GitHub actions (recommend)
+  - Before the workshop
+    - Create a new branch and fill the ghusers.txt and emails.txt (as detailed in [Prerequisites](#prerequisites)).
+    - Run TS workshop setup [workshop-setup.yml](/actions/workflows/workshop-setup.yml) Workflow to set up the environments for workshop participants
+  - After the workshop
+    - Run TS workshop cleanup [workshop-cleanup.yml](/actions/workflows/workshop-cleanup.yml) Workflow to clean up the environments.
+    - If any enhancements were performed, push them to the master branch and delete the workshop branch.
+- Local execution (fallback).
+If the GitHub actions can’t be used (e.g. GitHub actions usage limit exceeded), you can clone this repo and execute the scripts locally.
+  - git clone https://github.com/mend-toolkit/ts-workshop.git && cd ts-workshop
+  - Set all script parameters, including the parameters that have been predefined as [Repository secrets](#repository-secrets).
+  - Fill the ghusers.txt and emails.txt (as detailed in [Prerequisites](#prerequisites)).
+  - Run workshop-setup.sh script to set up the environments for workshop participants.
+    - chmod +x ./workshop-setup.sh && ./workshop-setup.sh
+  - Run workshop-cleanup.sh script to clean up the environments after the workshop.
+    - chmod +x ./workshop-cleanup.sh && ./cleanup-setup.sh
 
 # Repository secrets
 The following parameters are predefined as repository secrets and need to be defined in case of the Local execution. Add link.
