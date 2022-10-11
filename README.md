@@ -22,3 +22,20 @@ The current workshop setup includes 3 GitHub, SCA, and SAST organizations.
 
 
 # Appendix
+### SAST focused workshops 
+The SAST scripts are disabled by default and should be uncommented to set up SAST organizations for workshop participants.
+- GitHub actions - Uncomment Workshop-setup-sast/ Workshop-cleanup-sast steps.
+- Local execution – Uncomment SAST scripts
+### Extending workshop setup
+- The following parameters will need to be updated to include the new organizations for extended Workshop environments:
+  - GitHub parameters (GitHub scripts): Add link
+    - GH_ORGS
+  - SCA parameters (SCA scripts): Add link
+    - WS_APIKEYS
+    - WS_USERKEYS
+  - SAST parameters (SAST scripts): Add link
+    - SAST_API_TOKENS
+- Modifying workshop content
+  - Adding new projects for the workshop – Add a new branch to this repo with the desired content (e.g., the easybuggy (./tree/easybuggy) branch includes the [easybuggy](https://github.com/k-tamura/easybuggy) application).
+  - Updating existing projects – Navigate to the corresponding branch and update the application content accordingly.
+
