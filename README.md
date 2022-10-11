@@ -47,13 +47,13 @@ High level overview of the scripts:
 
 # Repository secrets
 The following parameters are predefined as repository secrets and need to be defined in case of the Local execution. Add link.
--	GitHub parameters [GitHub scripts](#github-scripts):
-  -	GH_TOKEN - The GitHub token can be obtained from your manager.
--	SCA parameters [SCA scripts](#sca-scripts):
-  -	WS_APIKEYS - The API tokens can be obtained from SCA organizations.
-  -	WS_USERKEYS - The keys can be obtained from the service users in SCA organizations.
--	SAST parameters [SAST scripts](#sast-scripts):
-  -	SAST_API_TOKENS - The API tokens can be obtained from SAST organizations.
+- GitHub parameters [GitHub scripts](#github-scripts):
+  - GH_TOKEN - The GitHub token can be obtained from your manager.
+- SCA parameters [SCA scripts](#sca-scripts):
+  - WS_APIKEYS - The API tokens can be obtained from SCA organizations.
+  - WS_USERKEYS - The keys can be obtained from the service users in SCA organizations.
+- SAST parameters [SAST scripts](#sast-scripts):
+  - SAST_API_TOKENS - The API tokens can be obtained from SAST organizations.
 
 # Appendix
 #### SAST focused workshops
