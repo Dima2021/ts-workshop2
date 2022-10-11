@@ -7,8 +7,8 @@ In addition, projects used for workshops can easily be adjusted by the facilitat
 
 # Workshop environments
 The current workshop setup includes 3 GitHub, SCA, and SAST organizations.
-- Workshops typically include GitHub and SCA organizations, while SAST organizations are optional depending on workshop requirements.
-- Additional organizations can be added on demand. [Appendix](#appendix).
+- Workshops typically include GitHub and SCA organizations, while SAST organizations are optional depending on workshop requirements ([SAST focused workshops](#sast-focused-workshops)).
+- Additional organizations can be added on demand ([Extending workshop setup](#extending-workshop-setup)).
 
 | GitHub.com organization  | SCA organization | SAST organization |
 | --- | --- | --- |
@@ -22,20 +22,20 @@ The current workshop setup includes 3 GitHub, SCA, and SAST organizations.
 
 
 # Appendix
-### SAST focused workshops 
+### SAST focused workshops
 The SAST scripts are disabled by default and should be uncommented to set up SAST organizations for workshop participants.
 - GitHub actions - Uncomment Workshop-setup-sast/ Workshop-cleanup-sast steps.
 - Local execution – Uncomment SAST scripts
 ### Extending workshop setup
-- The following parameters will need to be updated to include the new organizations for extended Workshop environments:
-  - GitHub parameters (GitHub scripts): Add link
-    - GH_ORGS
-  - SCA parameters (SCA scripts): Add link
-    - WS_APIKEYS
-    - WS_USERKEYS
-  - SAST parameters (SAST scripts): Add link
-    - SAST_API_TOKENS
-- Modifying workshop content
-  - Adding new projects for the workshop – Add a new branch to this repo with the desired content (e.g., the easybuggy (./tree/easybuggy) branch includes the [easybuggy](https://github.com/k-tamura/easybuggy) application).
-  - Updating existing projects – Navigate to the corresponding branch and update the application content accordingly.
+The following parameters will need to be updated to include the new organizations for extended [Workshop environments](#workshop-environments):
+- GitHub parameters (GitHub scripts): Add link
+  - GH_ORGS
+- SCA parameters (SCA scripts): Add link
+  - WS_APIKEYS
+  - WS_USERKEYS
+- SAST parameters (SAST scripts): Add link
+  - SAST_API_TOKENS
+### Modifying workshop content
+- **Adding new projects for the workshop** - Add a new branch to this repo with the desired content (e.g., the easybuggy branch includes the [easybuggy](https://github.com/k-tamura/easybuggy) application).
+- **Updating existing projects** - Navigate to the corresponding branch and update the application content accordingly.
 
