@@ -1,7 +1,7 @@
-export GH_TOKEN=<get token from manager and set in shell before script>
-export GH_ORGS="mendts-workshop, mendts-workshop1, mendts-workshop2"
-export GH_USERNAME=ts-whitesource
-export GH_USERS_PER_ORG=2
+#export GH_TOKEN=<get token from manager and set in shell before script>
+#export GH_ORGS="mendts-workshop, mendts-workshop1, mendts-workshop2"
+#export GH_USERNAME=ts-whitesource
+#export GH_USERS_PER_ORG=2
 
 ghFile=$1
 readarray -t ghUsers <$ghFile
