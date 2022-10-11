@@ -59,9 +59,9 @@ If GitHub actions can’t be used (e.g. [GitHub actions usage](#github-actions-u
   - Set all script parameters, including the parameters that have been predefined as [Repository secrets](#repository-secrets).
   - Fill the ghusers.txt and emails.txt (as detailed in [Prerequisites](#prerequisites)).
   - Run workshop-setup.sh script to set up the environments for workshop participants.
-    - chmod +x ./workshop-setup.sh && ./workshop-setup.sh
+    - ```chmod +x ./workshop-setup.sh && ./workshop-setup.sh```
   - Run workshop-cleanup.sh script to clean up the environments after the workshop.
-    - chmod +x ./workshop-cleanup.sh && ./cleanup-setup.sh
+    - ```chmod +x ./workshop-cleanup.sh && ./cleanup-setup.sh```
 
 # Repository secrets
 The following parameters are predefined as repository secrets and need to be defined in case of the [Local execution](#Local-execution-fallback).
