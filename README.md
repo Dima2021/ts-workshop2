@@ -6,34 +6,19 @@ This project aims to provide workshop facilitators with tools for setting up env
 In addition, projects used for workshops can easily be adjusted by the facilitator. Flows and detailed instructions for the workshop can be found [here](https://whitesource.atlassian.net/wiki/spaces/TES/pages/2500984892/Customer+Workshops).
 
 # Workshop environments
-Below is a diagram of the current workshop setup, which includes 3 GitHub, SCA, and SAST organizations.
+The current workshop setup includes 3 GitHub, SCA, and SAST organizations.
 - Workshops typically include GitHub and SCA organizations, while SAST organizations are optional depending on workshop requirements.
-- Additional organizations can be added on demand.
+- Additional organizations can be added on demand. [Appendix](#appendix).
+
+| GitHub.com organization  | SCA organization | SAST organization |
+| --- | --- | --- |
+| [mendts-workshop](https://github.com/mendts-workshop) | MendTS-Workshop (https://saas.mend.io) | MendTS-Workshop (https://sast.mend.io/sast) |
+| [mendts-workshop1](https://github.com/mendts-workshop1) | MendTS-Workshop1 (https://saas.mend.io) | MendTS-Workshop1 (https://sast.mend.io/sast) |
+| [mendts-workshop2](https://github.com/mendts-workshop2) | MendTS-Workshop2 (https://saas.mend.io) | MendTS-Workshop2 (https://sast.mend.io/sast) |
 
 
 
 
 
-## Old -Ignore
-Tools for setting up a technical services workshop
-- The github setup script will create a repository in the https://github.com/wsts-workshop organization according to the ghusers.txt list with the same name as the github user and give that user admin priviledges.
-- The SAST setup script will add the email as an administrator to the ts-workshop-organization in https://sast-demo.whitesourcesoftware.com
-  - This script is currently broken due to bugs with user access control
-- The cleanup script will delete all repositories in the https://github.com/wsts-workshop organization according to the ghusers.txt list
 
-## Supported Operating Systems
-- **Linux (Bash):**	CentOS, Debian, Ubuntu, RedHat
-
-## Prerequisites
-- Fill ghusers.txt with github user accounts that will be participating in the workshop.  Do not use commas, just line seperated
-- Fill emails.txt with email accounts that will be participating in the workshop.  Do not use commas, just line seperated
-
-## Installation
-- ```git clone``` this repository and ```cd``` into the directory
-
-
-## Execution
-Execution instructions:  
-- Run to populate repos ```./workshop-setup-Github.sh ghusers.txt```
-  - Run ```wc -l repocreated.txt``` to verify creation #
-
+# Appendix
