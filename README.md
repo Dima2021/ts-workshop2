@@ -5,6 +5,10 @@
 This project aims to provide workshop facilitators with tools for setting up environments for workshop participants. TS-Workshop is designed for workshops with many participants so the workload can be distributed among several organizations.
 In addition, projects used for workshops can easily be adjusted by the facilitator. Flows and detailed instructions for the workshop can be found [here](https://whitesource.atlassian.net/wiki/spaces/TES/pages/2500984892/Customer+Workshops).
 
+# Workshop environments
+Below is a diagram of the current workshop setup, which includes 3 GitHub, SCA, and SAST organizations.
+- Workshops typically include GitHub and SCA organizations, while SAST organizations are optional depending on workshop requirements.
+- Additional organizations can be added on demand.
 
 
 
