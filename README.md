@@ -64,7 +64,7 @@ If GitHub actions can’t be used (e.g. [GitHub actions usage](#github-actions-u
     - chmod +x ./workshop-cleanup.sh && ./cleanup-setup.sh
 
 # Repository secrets
-The following parameters are predefined as repository secrets and need to be defined in case of the Local execution. Add link.
+The following parameters are predefined as repository secrets and need to be defined in case of the [Local execution](#Local-execution).
 - GitHub parameters [GitHub scripts](#github-scripts):
   - GH_TOKEN - The GitHub token can be obtained from your manager.
 - SCA parameters [SCA scripts](#sca-scripts):
@@ -76,8 +76,8 @@ The following parameters are predefined as repository secrets and need to be def
 # Appendix
 #### SAST focused workshops
 The SAST scripts are disabled by default and should be uncommented to set up SAST organizations for workshop participants.
-- GitHub actions - Uncomment Workshop-setup-sast/ Workshop-cleanup-sast steps.
-- Local execution – Uncomment SAST scripts.
+- [GitHub actions](#gitHub-actions-recommend) - Uncomment Workshop-setup-sast/ Workshop-cleanup-sast steps.
+- [Local execution](#Local-execution) – Uncomment SAST scripts.
 #### Extending workshop setup
 The following parameters will need to be updated to include the new organizations for extended [Workshop environments](#workshop-environments):
 - GitHub parameters [GitHub scripts](#github-scripts):
