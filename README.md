@@ -47,12 +47,12 @@ The SAST scripts are disabled by default and should be uncommented to set up SAS
 - Local execution – Uncomment SAST scripts.
 #### Extending workshop setup
 The following parameters will need to be updated to include the new organizations for extended [Workshop environments](#workshop-environments):
-- GitHub parameters [GitHub scripts](github-scripts):
+- GitHub parameters [GitHub scripts](#github-scripts):
   - GH_ORGS
-- SCA parameters [SCA scripts](sca-scripts):
+- SCA parameters [SCA scripts](#sca-scripts):
   - WS_APIKEYS
   - WS_USERKEYS
-- SAST parameters [SAST scripts](sast-scripts):
+- SAST parameters [SAST scripts](#sast-scripts):
   - SAST_API_TOKENS
 #### Modifying workshop content
 - **Adding new projects for the workshop** - Add a new branch to this repo with the desired content (e.g., the easybuggy branch includes the [easybuggy](https://github.com/k-tamura/easybuggy) application).
