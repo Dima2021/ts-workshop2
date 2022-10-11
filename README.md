@@ -46,15 +46,15 @@ High level overview of the scripts:
 
 # Execution
 There are 2 options to execute the scripts
-- GitHub actions (recommend)
+- #### GitHub actions (recommend):
   - Before the workshop
     - Create a new branch and fill the ghusers.txt and emails.txt (as detailed in [Prerequisites](#prerequisites)).
-    - Run TS workshop setup [workshop-setup.yml](https://github.com/Dima2021/ts-workshop2/actions/workflows/workshop-setup.yml) Workflow to set up the environments for workshop participants
+    - Run TS workshop setup [workshop-setup.yml](https://github.com/Dima2021/ts-workshop2/actions/workflows/workshop-setup.yml) workflow to set up the environments for workshop participants.
   - After the workshop
-    - Run TS workshop cleanup [workshop-cleanup.yml](https://github.com/Dima2021/ts-workshop2/actions/workflows/workshop-cleanup.yml) Workflow to clean up the environments.
+    - Run TS workshop cleanup [workshop-cleanup.yml](https://github.com/Dima2021/ts-workshop2/actions/workflows/workshop-cleanup.yml) workflow to clean up the environments.
     - If any enhancements were performed, push them to the master branch and delete the workshop branch.
-- Local execution (fallback).
-If the GitHub actions can’t be used (e.g. GitHub actions usage limit exceeded), you can clone this repo and execute the scripts locally.
+- #### Local execution (fallback):
+If GitHub actions can’t be used (e.g. [GitHub actions usage](#github-actions-usage) limit exceeded), you can clone this repo and execute the scripts locally.
   - git clone https://github.com/mend-toolkit/ts-workshop.git && cd ts-workshop
   - Set all script parameters, including the parameters that have been predefined as [Repository secrets](#repository-secrets).
   - Fill the ghusers.txt and emails.txt (as detailed in [Prerequisites](#prerequisites)).
@@ -91,3 +91,5 @@ The following parameters will need to be updated to include the new organization
 - **Adding new projects for the workshop** - Add a new branch to this repo with the desired content (e.g., the [easybuggy branch](https://github.com/Dima2021/ts-workshop2/tree/easybuggy) includes the [easybuggy](https://github.com/k-tamura/easybuggy) application).
 - **Updating existing projects** - Navigate to the corresponding branch and update the application content accordingly.
 
+# GitHub actions usage
+-	https://github.com/settings/billing (Usage this month)
