@@ -1,5 +1,4 @@
 ![Logo](https://resources.mend.io/mend-sig/logo/mend-dark-logo-horizontal.png)
-
 [![License](https://img.shields.io/badge/License-Apache%202.0-yellowgreen.svg)](https://opensource.org/licenses/Apache-2.0)  
 # Technical Services Workshop Setup Tools
 This project aims to provide workshop facilitators with tools for setting up environments for workshop participants. TS-Workshop is designed for workshops with many participants so the workload can be distributed among several organizations.
@@ -38,7 +37,23 @@ High level overview of the scripts:
   - workshop-setup- sast.sh - Create administrator accounts for the email address list (emails.txt) in SAST organizations.
   - workshop-cleanup-sast.sh - Delete all accounts in SAST organizations based on the email address list (emails.txt).
 
+# Supported Operating Systems
+-	**Linux (Bash)**: CentOS, Debian, Ubuntu, RedHat
 
+# Prerequisites
+-	Fill ghusers.txt with GitHub user accounts that will be participating in the workshop. Do not use commas, just **line separated**.
+-	Fill emails.txt with email accounts that will be participating in the workshop. Do not use commas, just **line separated**.
+
+
+# Repository secrets
+The following parameters are predefined as repository secrets and need to be defined in case of the Local execution. Add link.
+-	GitHub parameters [GitHub scripts](#github-scripts):
+  -	GH_TOKEN - The GitHub token can be obtained from your manager.
+-	SCA parameters [SCA scripts](#sca-scripts):
+  -	WS_APIKEYS - The API tokens can be obtained from SCA organizations.
+  -	WS_USERKEYS - The keys can be obtained from the service users in SCA organizations.
+-	SAST parameters [SAST scripts](#sast-scripts):
+  -	SAST_API_TOKENS - The API tokens can be obtained from SAST organizations.
 
 # Appendix
 #### SAST focused workshops
