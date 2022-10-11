@@ -16,8 +16,26 @@ The current workshop setup includes 3 GitHub, SCA, and SAST organizations.
 | [mendts-workshop1](https://github.com/mendts-workshop1) | MendTS-Workshop1 (https://saas.mend.io) | MendTS-Workshop1 (https://sast.mend.io/sast) |
 | [mendts-workshop2](https://github.com/mendts-workshop2) | MendTS-Workshop2 (https://saas.mend.io) | MendTS-Workshop2 (https://sast.mend.io/sast) |
 
-
-
+# Tools for setting up a technical workshop
+The following parameters are important for understating of the script’s functionality.
+- **GH_USERS_PER_ORG** - Number of users participating in a (single) GH/SCA/SAST organization.
+  - E.g., if GH_USERS_PER_ORG is set to 20 and there are 50 participants in the workshop, the first 20 will be created under MendTS-Workshop (GH/SCA/SAST organization). The next 20 participants will be created in MendTS-Workshop**1** (GH/SCA/SAST organization), and the last 10 in MendTS-Workshop**2** (GH/SCA/SAST organization).
+  - It is recommended that organizations have up to 20 users (due to performance considerations).
+- **GH_BRANCH** - The branch containing the project that will be used for the workshop (to be pushed to user repositories).
+  - E.g., GH_BRANCH=easybuggy, means that the content of easybuggy branch will be pushed to user repositories
+  - [Modifying workshop content](#modifying-workshop-content)
+High level overview of the scripts
+- GitHub scripts:
+  - workshop-setup-github.sh
+    - Create repositories in GitHub organizations based on GitHub users list (ghusers.txt). The repository is created with the same name as the GitHub user and give that user admin privileges.
+    - Push the workshop project to the user repositories (from the specified branch).
+  - workshop-cleanup-github.sh - Delete all repositories in GitHub organizations based on the GitHub users list (ghusers.txt).
+- SCA scripts:
+  - workshop-setup-sca.sh - Create administrator accounts for the email address list (emails.txt) in SCA organizations.
+  - workshop-cleanup-sca.sh - Delete all accounts in SCA organizations based on the email address list (emails.txt).
+- SAST scripts:
+  - workshop-setup- sast.sh - Create administrator accounts for the email address list (emails.txt) in SAST organizations.
+  - workshop-cleanup-sast.sh - Delete all accounts in SAST organizations based on the email address list (emails.txt).
 
 
 
