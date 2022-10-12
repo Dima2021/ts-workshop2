@@ -3,7 +3,7 @@ on: workflow_dispatch
 
 env:
  GH_USERS_PER_ORG: 1
- SAST_RUN_SCRIPT: ${{ false }}
+ SAST_RUN_SCRIPT: true
     
 jobs:
   Workshop-setup:
@@ -29,7 +29,7 @@ jobs:
         chmod +x ./workshop-cleanup-sca.sh
         ./workshop-cleanup-sca.sh emails.txt
     - name: Workshop-cleanup-sast
-      if: ${{env.SAST_RUN_SCRIPT}}
+      if: ${{env.SAST_RUN_SCRIPT == 'true'}}
       env:
         SAST_API_TOKENS: "${{secrets.SAST_API_TOKEN}}, ${{secrets.SAST_API_TOKEN1}}, ${{secrets.SAST_API_TOKEN2}}"
         SAST_URL: https://sast.mend.io/sast
