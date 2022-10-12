@@ -15,7 +15,6 @@ jobs:
         GH_TOKEN: ${{secrets.GH_TOKEN}}
         GH_ORGS: "mendts-workshop, mendts-workshop1, mendts-workshop2"
         GH_USERNAME: ts-whitesource
-        GH_BRANCH: easybuggy
       run: |
         chmod +x ./workshop-cleanup-github.sh
         ./workshop-cleanup-github.sh ghusers.txt
@@ -24,7 +23,6 @@ jobs:
         WS_APIKEYS: "${{secrets.WS_APIKEY}}, ${{secrets.WS_APIKEY1}}, ${{secrets.WS_APIKEY2}}"
         WS_USERKEYS: "${{secrets.WS_USERKEY}}, ${{secrets.WS_USERKEY1}}, ${{secrets.WS_USERKEY2}}"
         WS_WSS_URL: https://saas.mend.io/api/v1.3
-        WS_INVITERS: "tsworkshop@whitesourcesoftware.com, tsworkshop1@whitesourcesoftware.com, tsworkshop2@whitesourcesoftware.com"
       run: |
         chmod +x ./workshop-cleanup-sca.sh
         ./workshop-cleanup-sca.sh emails.txt
