@@ -75,9 +75,8 @@ The following parameters are predefined as repository secrets and need to be def
 
 # Appendix
 #### SAST focused workshops
-SAST scripts are disabled by default and need to be uncommented in order to set up SAST organizations for workshop participants.
-- [GitHub actions](#gitHub-actions-recommend) - Uncomment Workshop-setup-sast/ Workshop-cleanup-sast steps.
-- [Local execution](#Local-execution-fallback) – Uncomment SAST scripts.
+SAST scripts are disabled by default and need to be enabled in order to set up SAST organizations for workshop participants.
+- SAST_RUN_SCRIPT - Change to true **(lower case)** to enable SAST scripts.
 #### Extending workshop setup
 Adding new organizations for extended [Workshop environments](#workshop-environments) will require updating the following parameters:
 - GitHub parameters [GitHub scripts](#github-scripts):
